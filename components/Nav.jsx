@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
+const isUserLoggedIn = true;
+
 const Nav = () => {
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
@@ -15,7 +17,13 @@ const Nav = () => {
           alt='promptopia logo'
           className='object-contain'
         />
+        <p className='logo_text'>Promptopia</p>
       </Link>
+
+      {/* mobile navigation */}
+      <div className='sm:flex hidden'>
+        {isUserLoggedIn ? <div></div> : <></>}
+      </div>
     </nav>
   );
 };
